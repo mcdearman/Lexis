@@ -1,0 +1,52 @@
+cabal-version:      3.0
+name:               Lexis
+version:            0.1.0.0
+synopsis: A DSL for lexical analysis using Template Haskell
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             mcdearman
+maintainer:         mcdearmanchris@gmail.com
+-- copyright:
+category:           Language
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Lexis
+    other-modules:
+        Gen.DFA
+        Gen.NFA
+        Gen.Graph
+    default-extensions:
+        TemplateHaskell
+        OverloadedStrings
+        TupleSections
+        LambdaCase
+        RecordWildCards
+        BangPatterns
+        PatternSynonyms
+    -- other-extensions:
+    build-depends:    
+        base ^>=4.20.0.0,
+        containers,
+        mtl
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite Lexis-test
+    import:           warnings
+    default-language: Haskell2010
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.20.0.0,
+        Lexis
