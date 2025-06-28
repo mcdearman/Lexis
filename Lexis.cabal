@@ -20,9 +20,9 @@ library
     import:           warnings
     exposed-modules:  Lexis
     other-modules:
-        Gen.DFA
-        Gen.NFA
-        Gen.Graph
+        Lexis.Internal.DFA
+        Lexis.Internal.NFA
+        Lexis.Internal.Graph
     default-extensions:
         TemplateHaskell
         OverloadedStrings
